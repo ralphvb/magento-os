@@ -6,4 +6,4 @@
 
 use Magento\Framework\Component\ComponentRegistrar;
 
-ComponentRegistrar::register(ComponentRegistrar::MODULE, 'Inventory_Fulfillment', __DIR__);
+ComponentRegistrar::register(ComponentRegistrar::MODULE, 'RvB_InventoryFulfillment', __DIR__);
