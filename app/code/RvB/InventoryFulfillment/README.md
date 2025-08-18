@@ -13,3 +13,9 @@
 
 ## Documentacion Oficial
 - KO Bindings: [Custom Knockout.js bindings](https://developer.adobe.com/commerce/frontend-core/ui-components/concepts/knockout-bindings/)
+
+# Hierarchy Fallback
+
+- Layout XML Config Node
+- Init Script (x-magento-init)
+- Construct Arguments
