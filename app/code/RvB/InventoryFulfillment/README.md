@@ -20,3 +20,6 @@
 - Layout XML Config Node
 - Init Script (x-magento-init)
 - Construct Arguments
+
+# CSS
+- lib/web/css/source/lib/variables/*.less
