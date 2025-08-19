@@ -2,15 +2,16 @@ define([
     'uiComponent',
     'ko',
     'mage/storage',
-    'jquery'
-], function (Component, ko, storage, $) {
+    'jquery',
+    'mage/translate'
+], function (Component, ko, storage, $, $t) {
     'use strict';
 
     return Component.extend({
         defaults: {
             template: 'RvB_InventoryFulfillment/sku-lookup',
             sku: ko.observable('24-MB01'),
-            placeholder: ko.observable('Example: 24-MB01'),
+            placeholder: $t('Example: %1').replace('%1', '24-MB01'),
             messageResponse: ko.observable(''),
             isSuccess: ko.observable(false)
         },
@@ -25,11 +26,11 @@ define([
 
             storage.get(`rest/V1/products/${this.sku()}`)
                 .done(response => {
-                    this.messageResponse(`Product found! <strong>${response.name}</strong>`);
+                    this.messageResponse($t('Product found! %1').replace('%1', `<strong>${response.name}</strong>`));
                     this.isSuccess(true);
                 })
                 .fail(() => {
-                    this.messageResponse('Product not found!');
+                    this.messageResponse($t('Product not found!'));
                     this.isSuccess(false);
                 })
                 .always(() => {
