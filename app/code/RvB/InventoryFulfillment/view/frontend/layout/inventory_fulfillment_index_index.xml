@@ -8,9 +8,12 @@
                         <item name="components" xsi:type="array">
                             <item name="skuLookup" xsi:type="array">
                                 <item name="component" xsi:type="string">RvB_InventoryFulfillment/js/sku-lookup</item>
-                                <!-- <item name="config" xsi:type="array">
-                                    <item name="template" xsi:type="string">RvB_InventoryFulfillment/sku-lookup</item>
-                                </item> -->
+                            </item>
+                            <item name="boxConfigurations" xsi:type="array">
+                                <item name="component" xsi:type="string">RvB_InventoryFulfillment/js/box-configurations</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="template" xsi:type="string">RvB_InventoryFulfillment/box-configurations</item>
+                                </item>
                             </item>
                         </item>
                     </argument>
