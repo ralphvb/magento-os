@@ -12,22 +12,25 @@
         <tbody data-bind="foreach: boxConfigurations">
             <tr>
                 <td>
-                    <input name="units_per_box" type="number" data-bind="textInput: unitsPerBox">
+                    <input name="units_per_box" type="number" data-bind="textInput: unitsPerBox"/>
                 </td>
                 <td>
-                    <input name="number_of_boxes" type="number" data-bind="textInput: numberOfBoxes">
+                    <input name="number_of_boxes" type="number" data-bind="textInput: numberOfBoxes"/>
                 </td>
                 <td>
-                    <input name="weight" type="number" data-bind="textInput: weight">
+                    <input name="weight" type="number" data-bind="textInput: weight"/>
                 </td>
                 <td>
-                    <input name="length" type="number" data-bind="textInput: length">
+                    <input name="length" type="number" data-bind="textInput: length"/>
                     x
-                    <input name="width" type="number" data-bind="textInput: width">
+                    <input name="width" type="number" data-bind="textInput: width"/>
                     x
-                    <input name="height" type="number" data-bind="textInput: height">
+                    <input name="height" type="number" data-bind="textInput: height"/>
                 </td>
             </tr>
         </tbody>
     </table>
+    <button type="button" data-bind="click: handleAdd">
+        <!-- ko i18n: 'Add box configuration'--><!-- /ko -->
+    </button>
 </div>
