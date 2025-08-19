@@ -13,6 +13,7 @@
 
 ## Documentacion Oficial
 - KO Bindings: [Custom Knockout.js bindings](https://developer.adobe.com/commerce/frontend-core/ui-components/concepts/knockout-bindings/)
+- Magento Binding: [Binding syntax](https://developer.adobe.com/commerce/frontend-core/ui-components/concepts/binding-syntax/)
 
 # Hierarchy Fallback
 
