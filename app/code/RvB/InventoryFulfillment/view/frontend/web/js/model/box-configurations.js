@@ -18,6 +18,16 @@ define([
             return Math.round(result * data.numberOfBoxes());
         });
 
+        data.totalWeight = ko.computed(() => {
+            const result = data.numberOfBoxes() * data.weight();
+            return result;
+        });
+
+        data.billableWeight = ko.computed(() => {
+            const result = Math.max(data.totalWeight(), data.dimensionalWeight());
+            return result;
+        });
+
         return data;
     }
 
