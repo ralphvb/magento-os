@@ -31,9 +31,9 @@ define([
         handleSubmit() {
             $('.box-configurations form input').removeAttr('aria-invalid');
             if($('.box-configurations form').valid()){
-                console.log('Box Configuration success.');
+                boxConfigurationsModel.isSuccess(true);
             } else {
-                console.log('Box Configuration failed.');
+                boxConfigurationsModel.isSuccess(false);
             }
         }
     });
