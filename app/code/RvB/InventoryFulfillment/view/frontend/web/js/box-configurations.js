@@ -2,8 +2,10 @@ define([
     'uiComponent',
     'ko',
     'RvB_InventoryFulfillment/js/model/box-configurations',
-    'RvB_InventoryFulfillment/js/model/sku'
-], function (Component, ko, boxConfigurationsModel, skuModel) {
+    'RvB_InventoryFulfillment/js/model/sku',
+    'jquery',
+    'mage/validation'
+], function (Component, ko, boxConfigurationsModel, skuModel, $) {
     'use strict';
 
     return Component.extend({
@@ -27,7 +29,12 @@ define([
             boxConfigurationsModel.delete(index);
         },
         handleSubmit() {
-            console.log('Submitted box configuration form.');
+            $('.box-configurations form input').removeAttr('aria-invalid');
+            if($('.box-configurations form').valid()){
+                console.log('Box Configuration success.');
+            } else {
+                console.log('Box Configuration failed.');
+            }
         }
     });
 });
