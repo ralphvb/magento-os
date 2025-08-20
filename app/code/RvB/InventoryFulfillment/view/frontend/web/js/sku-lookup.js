@@ -3,17 +3,18 @@ define([
     'ko',
     'mage/storage',
     'jquery',
-    'mage/translate'
-], function (Component, ko, storage, $, $t) {
+    'mage/translate',
+    'RvB_InventoryFulfillment/js/model/sku'
+], function (Component, ko, storage, $, $t, skuModel) {
     'use strict';
 
     return Component.extend({
         defaults: {
             template: 'RvB_InventoryFulfillment/sku-lookup',
-            sku: ko.observable('24-MB01'),
+            sku: skuModel.sku,
             placeholder: $t('Example: %1').replace('%1', '24-MB01'),
             messageResponse: ko.observable(''),
-            isSuccess: ko.observable(false)
+            isSuccess: skuModel.isSuccess
         },
         initialize() {
             this._super();
