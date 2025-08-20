@@ -7,7 +7,7 @@ define([
 
     return Component.extend({
         defaults: {
-            boxConfigurations: boxConfigurationsModel
+            boxConfigurationsModel: boxConfigurationsModel
         },
         initialize() {
             this._super();
