@@ -3,7 +3,8 @@ define([
     'ko',
     'RvB_InventoryFulfillment/js/model/sku',
     'RvB_InventoryFulfillment/js/model/box-configurations',
-], function(Component, ko, skuModel, boxConfigurationsModel){
+    'mage/url'
+], function(Component, ko, skuModel, boxConfigurationsModel, url){
     'use strict';
 
     return Component.extend({
@@ -12,7 +13,9 @@ define([
             shipmentWeight: boxConfigurationsModel.shipmentWeight(),
             billableWeight: boxConfigurationsModel.billableWeight(),
             isTermsChecked: ko.observable(false),
-            boxConfigurationsIsSuccess: boxConfigurationsModel.isSuccess
+            boxConfigurationsIsSuccess: boxConfigurationsModel.isSuccess,
+            boxConfigurations: boxConfigurationsModel.boxConfigurations,
+            sku: skuModel.sku
         },
         initialize() {
             this._super();
@@ -24,9 +27,13 @@ define([
         handleSubmit() {
             if(this.canSubmit()){
                 console.log('The Review Submit has been submitted!');
+                return true;
             } else {
                 console.log('The Review Submit has an error!');
             }
+        },
+        getUrl() {
+            return url.build('inventory-fulfillment/index/post');
         }
     })
 })
