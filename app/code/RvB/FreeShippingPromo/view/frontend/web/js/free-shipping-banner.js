@@ -1,9 +1,12 @@
 define([
     'uiComponent'
-], function(Component){
+], function (Component) {
     'use strict';
 
-    console.log("Free Shipping Banner Ui Component has been loaded!");
-
-    return Component;
+    return Component.extend({
+        initialize: function () {
+            this._super();
+            console.log("Free Shipping Banner Ui Component has been loaded!");
+        }
+    });
 });
