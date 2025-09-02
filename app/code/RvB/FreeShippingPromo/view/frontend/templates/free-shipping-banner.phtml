@@ -1,3 +1,16 @@
+<?php
+
+/** @var Magento/Framework/View/Element/Template $block */
+?>
+
 <div id="free-shipping-banner">
     Free Shipping Banner
 </div>
+
+<script type="text/x-magento-init">
+    {
+        "#free-shipping-banner": {
+            "Magento_Ui/js/core/app": <?= $block->getJsLayout() ?>
+        }
+    }
+</script>
