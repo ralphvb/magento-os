@@ -12,6 +12,7 @@ define([
             shipmentWeight: boxConfigurationsModel.shipmentWeight(),
             billableWeight: boxConfigurationsModel.billableWeight(),
             isTermsChecked: ko.observable(false),
+            boxConfigurationsIsSuccess: boxConfigurationsModel.isSuccess
         },
         initialize() {
             this._super();
