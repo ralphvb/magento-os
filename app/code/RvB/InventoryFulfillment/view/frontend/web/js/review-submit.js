@@ -3,8 +3,9 @@ define([
     'ko',
     'RvB_InventoryFulfillment/js/model/sku',
     'RvB_InventoryFulfillment/js/model/box-configurations',
-    'mage/url'
-], function(Component, ko, skuModel, boxConfigurationsModel, url){
+    'mage/url',
+    'mage/storage'
+], function (Component, ko, skuModel, boxConfigurationsModel, url, storage) {
     'use strict';
 
     return Component.extend({
@@ -25,9 +26,16 @@ define([
             });
         },
         handleSubmit() {
-            if(this.canSubmit()){
+            if (this.canSubmit()) {
                 console.log('The Review Submit has been submitted!');
-                return true;
+                storage
+                    .post(this.getUrl(), {
+                        'sku': skuModel.sku,
+                        'boxConfigurations': ko.toJSON(boxConfigurationsModel.boxConfigurations)
+
+                    })
+                    .done(response => console.log('Response', response))
+                    .fail(error => console.log('Error', error));
             } else {
                 console.log('The Review Submit has an error!');
             }
