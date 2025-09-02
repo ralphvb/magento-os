@@ -17,4 +17,7 @@
 - Mediante XML en layout.
 - Mediante JSON en template.
 
+## Acceso a Propiedades
+- getTemplate() === get('template') === template: 'Ruta/al/template' (en phtml)
+
 ## Documentacion Oficial
