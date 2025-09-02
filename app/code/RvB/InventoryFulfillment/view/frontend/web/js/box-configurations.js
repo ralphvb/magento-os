@@ -11,6 +11,7 @@ define([
     return Component.extend({
         defaults: {
             boxConfigurationsModel: boxConfigurationsModel,
+            skuModel: skuModel
         },
         initialize() {
             this._super();
