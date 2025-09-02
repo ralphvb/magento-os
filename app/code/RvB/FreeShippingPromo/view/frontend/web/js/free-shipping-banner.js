@@ -5,7 +5,8 @@ define([
 
     return Component.extend({
         defaults: {
-            message: 'Free Shipping Message'
+            message: 'Free Shipping Message',
+            template: 'RvB_FreeShippingPromo/free-shipping-banner'
         },
         initialize: function () {
             this._super();
