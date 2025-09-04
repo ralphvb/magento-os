@@ -1,18 +1,18 @@
 define([
     'uiComponent',
     'Magento_Customer/js/customer-data',
-    'underscore'
-], function (Component, customerData, _) {
+    'underscore',
+    'ko'
+], function (Component, customerData, _, ko) {
     'use strict';
 
     return Component.extend({
         defaults: {
             template: 'RvB_FreeShippingPromo/free-shipping-banner',
             subtotal: 0.00,
-            message: '${ $.messageDefault }',
+            freeShippingThreshold: 100,
             tracks: {
-                subtotal: true,
-                message: true
+                subtotal: true
             }
         },
         initialize: function () {
@@ -30,7 +30,23 @@ define([
                 if (!_.isEmpty(cart) && !_.isUndefined(cart.subtotalAmount)) {
                     self.subtotal = parseFloat(cart.subtotalAmount);
                 }
-            })
+            });
+
+            self.message = ko.computed(function() {
+                if(self.subtotal === 0 || _.isUndefined(self.subtotal)) {
+                    return self.messageDefault;
+                }
+
+                if(self.subtotal > 0 && self.subtotal < self.freeShippingThreshold) {
+                    var subtotalRemaining = self.freeShippingThreshold - self.subtotal;
+                    var formattedSubtotalRemaining = self.formatCurrency(subtotalRemaining);
+                    return self.messageItemsInCart.replace('$XX.XX', formattedSubtotalRemaining);
+                }
+
+                if(self.subtotal > self.freeShippingThreshold) {
+                    return self.messageFreeShipping;
+                }
+            });
         },
         formatCurrency: function (value) {
             return '$' + value.toFixed(2);
