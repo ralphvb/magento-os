@@ -3,6 +3,9 @@ define([], function () {
 
     return function (Component) {
         return Component.extend({
+            defaults: {
+                template: 'RvB_CheckoutMessages/summary/cart-items'
+            },
             /**
              * Returns bool true value as override
              *
