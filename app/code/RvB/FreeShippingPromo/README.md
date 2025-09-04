@@ -19,5 +19,9 @@
 
 ## Acceso a Propiedades
 - getTemplate() === get('template') === template: 'Ruta/al/template' (en phtml)
+- require('uiRegistry').get('free-shipping-banner').set('hello', 'world');
+- require('uiRegistry').get('free-shipping-banner').set('welcome', { to: { my: 'world' } });
+- require('uiRegistry').get('free-shipping-banner').get('welcome');
+- require('uiRegistry').get('free-shipping-banner').remove('welcome.to.my');
 
 ## Documentacion Oficial
