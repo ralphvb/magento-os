@@ -9,8 +9,10 @@ define([
         defaults: {
             template: 'RvB_FreeShippingPromo/free-shipping-banner',
             subtotal: 0.00,
+            message: '${ $.messageDefault }',
             tracks: {
-                subtotal: true
+                subtotal: true,
+                message: true
             }
         },
         initialize: function () {
