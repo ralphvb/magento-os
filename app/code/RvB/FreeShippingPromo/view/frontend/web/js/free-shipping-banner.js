@@ -5,12 +5,16 @@ define([
 
     return Component.extend({
         defaults: {
-            template: 'RvB_FreeShippingPromo/free-shipping-banner'
+            template: 'RvB_FreeShippingPromo/free-shipping-banner',
+            subtotal: 33.00
         },
         initialize: function () {
             this._super();
             console.log("Free Shipping Banner Ui Component has been loaded!");
             console.log(this.message);
+        },
+        formatCurrency: function(value) {
+            return '$' +  value.toFixed(2);
         }
     });
 });
