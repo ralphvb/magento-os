@@ -24,4 +24,11 @@
 - require('uiRegistry').get('free-shipping-banner').get('welcome');
 - require('uiRegistry').get('free-shipping-banner').remove('welcome.to.my');
 
+#### Con KO (Observables)
+- require('uiRegistry').get('free-shipping-banner').set('subtotal', 40.00);
+- require('uiRegistry').get('free-shipping-banner').subtotal(50)
+
+#### Con Track
+- require('uiRegistry').get('free-shipping-banner').subtotal = 40;
+
 ## Documentacion Oficial
