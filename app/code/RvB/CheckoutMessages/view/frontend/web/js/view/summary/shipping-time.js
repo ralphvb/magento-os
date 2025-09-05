@@ -5,12 +5,13 @@ define([
 
     return Component.extend({
         defaults: {
+            '${ $.name }shippingAddressProvider': '${ $.name }AddressProvider',
             imports: {
-                countryId: 'checkoutProvider:shippingAddress.country_id'
+                countryId: '${ $.shippingAddressProvider }.country_id'
             },
             listens: {
                 // 'checkoutProvider:shippingAddress.country_id': 'countryId', Same as imports
-                'checkoutProvider:shippingAddress.region_id': 'handleRegionChange'
+                '${ $.shippingAddressProvider }.region_id': 'handleRegionChange'
             },
             tracks: {
                 countryId: true
