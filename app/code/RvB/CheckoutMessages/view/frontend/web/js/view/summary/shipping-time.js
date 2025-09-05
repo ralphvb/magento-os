@@ -8,12 +8,19 @@ define([
             imports: {
                 countryId: 'checkoutProvider:shippingAddress.country_id'
             },
+            listens: {
+                // 'checkoutProvider:shippingAddress.country_id': 'countryId',
+                'checkoutProvider:shippingAddress.region_id': 'handleRegionChange'
+            },
             tracks: {
                 countryId: true
             }
         },
         showMessage: function() {
             return this.countryId === 'US';
+        },
+        handleRegionChange: function(newRegionId) {
+            console.log('New Region ID: ' + newRegionId)
         }
     })
 })
