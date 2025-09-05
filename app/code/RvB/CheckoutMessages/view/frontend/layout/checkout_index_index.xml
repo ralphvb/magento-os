@@ -16,6 +16,16 @@
                                                     <item name="template" xsi:type="string">
                                                         RvB_CheckoutMessages/summary/shipping-time
                                                     </item>
+                                                    <item name="displayArea" xsi:type="string">extra-primary</item>
+                                                </item>
+                                            </item>
+                                            <item name="guarantee" xsi:type="array">
+                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                <item name="config" xsi:type="array">
+                                                    <item name="template" xsi:type="string">
+                                                        RvB_CheckoutMessages/summary/guarantee
+                                                    </item>
+                                                    <item name="displayArea" xsi:type="string">extra-secondary</item>
                                                 </item>
                                             </item>
                                         </item>
