@@ -19,6 +19,13 @@
                                                         RvB_CheckoutMessages/summary/shipping-time
                                                     </item>
                                                     <item name="displayArea" xsi:type="string">extra-primary</item>
+                                                    <!-- <item name="deps" xsi:type="string">
+                                                        checkout.sidebar.guarantee
+                                                    </item> -->
+                                                    <item name="deps" xsi:type="array">
+                                                        <item name="0" xsi:type="string">checkout.sidebar.guarantee</item>
+                                                        <item name="1" xsi:type="string">checkout.sidebar.summary</item>
+                                                    </item>
                                                 </item>
                                             </item>
                                             <item name="guarantee" xsi:type="array">
