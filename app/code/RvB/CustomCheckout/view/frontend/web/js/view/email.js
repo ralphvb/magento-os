@@ -4,8 +4,10 @@ define([
     'Magento_Checkout/js/model/step-navigator',
     'mage/translate',
     'underscore',
-    'Magento_Checkout/js/model/quote'
-], function (Component, ko, stepNavigator, $t, _, quote) {
+    'Magento_Checkout/js/model/quote',
+    'Magento_Customer/js/model/customer',
+    'jquery'
+], function (Component, ko, stepNavigator, $t, _, quote, customer, $) {
     'use strict';
 
     return Component.extend({
@@ -14,7 +16,7 @@ define([
             isVisible: ko.observable(false)
         },
         quoteIsVirtual: quote.isVirtual(),
-        initialize: function() {
+        initialize: function () {
             this._super();
 
             stepNavigator.registerStep(
@@ -28,11 +30,24 @@ define([
 
             return this;
         },
-        navigate: function() {
+        navigate: function () {
             this.isVisible(true);
         },
-        navigateToNextStep: function() {
-            stepNavigator.next();
+        navigateToNextStep: function () {
+            if (this.validateEmail()) {
+                stepNavigator.next();
+            }
+        },
+        validateEmail: function () {
+            const loginFormSelector = 'form[data-role=email-with-possible-login]';
+            let emailValidationResult = customer.isLoggedIn();
+
+            if (!customer.isLoggedIn()) {
+                $(loginFormSelector).validation();
+                emailValidationResult = Boolean($(loginFormSelector + ' input[name=username]').valid());
+            }
+
+            return emailValidationResult;
         }
     });
 })
