@@ -5,9 +5,8 @@ define([
     'mage/translate',
     'underscore',
     'Magento_Checkout/js/model/quote',
-    'Magento_Customer/js/model/customer',
-    'jquery'
-], function (Component, ko, stepNavigator, $t, _, quote, customer, $) {
+    'Magento_Checkout/js/model/customer-email-validator'
+], function (Component, ko, stepNavigator, $t, _, quote, customerEmailValidator) {
     'use strict';
 
     return Component.extend({
@@ -34,20 +33,9 @@ define([
             this.isVisible(true);
         },
         navigateToNextStep: function () {
-            if (this.validateEmail()) {
+            if (customerEmailValidator.validate()) {
                 stepNavigator.next();
             }
-        },
-        validateEmail: function () {
-            const loginFormSelector = 'form[data-role=email-with-possible-login]';
-            let emailValidationResult = customer.isLoggedIn();
-
-            if (!customer.isLoggedIn()) {
-                $(loginFormSelector).validation();
-                emailValidationResult = Boolean($(loginFormSelector + ' input[name=username]').valid());
-            }
-
-            return emailValidationResult;
         }
     });
 })
