@@ -7,6 +7,9 @@
                 <item name="rvb_customcheckout_checkout_layout_processor_updateaddresssortorder" xsi:type="object">
                     RvB\CustomCheckout\Block\Checkout\LayoutProcessor\UpdateAddressSortOrder
                 </item>
+                <item name="rvb_customcheckout_checkout_layout_processor_addressclassificationattribute" xsi:type="object">
+                    RvB\CustomCheckout\Block\Checkout\LayoutProcessor\AddressClassificationAttribute
+                </item>
             </argument>
         </arguments>
     </type>
