@@ -1,7 +1,8 @@
 var config = {
     "map": {
         "*": {
-            "fadeInElement": "RvB_JsFun/js/fade-in-element"
+            "fadeInElement": "RvB_JsFun/js/fade-in-element",
+            "Magento_Review/js/submit-review": "RvB_JsFun/js/submit-review"
         }
     },
     "paths": {
