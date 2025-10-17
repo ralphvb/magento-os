@@ -13,5 +13,12 @@ var config = {
     },
     "deps": [
         "RvB_JsFun/js/every-page"
-    ]
+    ],
+    "config": {
+        "mixins": {
+            "Magento_Ui/js/view/messages": {
+                "RvB_JsFun/js/messages-mixin": true
+            }
+        }
+    }
 }
