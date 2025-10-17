@@ -1,16 +1,14 @@
-<div id="vue-test">
+<!-- <div id="vue-test" data-mage-init='{"RvB_JsFun/js/vue-test": { "message": "Another test" }}'> -->
+<div id="vue-test" data-mage-init='{"RvB_JsFun/js/vue-test": { "message": "Another test" }}'>
     <h1>{{ message }}</h1>
 </div>
 
-<script type="module">
-    require(['vue'], function(Vue) {
-        'use strict';
-
-        new Vue({
-            el: '#vue-test',
-            data: {
-                message: 'This is a test'
+<script type="text/x-magento-init">
+    {
+        "#vue-test": {
+            "RvB_JsFun/js/vue-test": { 
+                "message": "Declarative test" 
             }
-        });
-    })
+        }
+    }
 </script>
