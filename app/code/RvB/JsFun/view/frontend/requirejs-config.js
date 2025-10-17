@@ -5,7 +5,6 @@ var config = {
         }
     },
     "paths": {
-        "vue": "RvB_JsFun/js/vue"
-        // "vue": "https://cdn.jsdelivr.net/npm/vue@2.7.16"
+        "vue": ["https://cdn.jsdelivr.net/npm/vue@2.7.16", "RvB_JsFun/js/vue"]
     }
 }
