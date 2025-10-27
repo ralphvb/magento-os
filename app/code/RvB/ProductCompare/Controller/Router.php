@@ -17,6 +17,13 @@ class Router implements \Magento\Framework\App\RouterInterface
      */
     public function match(RequestInterface $request): ?ActionInterface
     {
-        dd($request->getPathInfo());
+        $path = trim($request->getPathInfo(), '/');
+        $pathParts = explode('/', $path);
+        
+        if($pathParts[0] === 'compare') {
+            dd('match');
+        }
+
+        dd('no match');
     }
 }
