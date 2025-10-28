@@ -9,7 +9,7 @@ use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 class Faq extends AbstractDb
 {
     /** @var string Main table name */
-    const MAIN_TABLE = 'rvb_minerva_faqs';
+    const MAIN_TABLE = 'rvb_minerva_faq';
 
     /** @var string Main table primary key field name */
     const ID_FIELD_NAME = 'id';
