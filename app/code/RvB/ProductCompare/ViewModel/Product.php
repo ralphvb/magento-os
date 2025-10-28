@@ -9,6 +9,7 @@ use Magento\Framework\Api\FilterBuilder;
 use Magento\Framework\Api\SearchCriteriaBuilder;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
+use Psr\Log\LoggerInterface;
 
 class Product implements ArgumentInterface
 {
@@ -30,22 +31,28 @@ class Product implements ArgumentInterface
     /** @var SearchCriteriaBuilder */
     private readonly SearchCriteriaBuilder $searchCriteriaBuilder;
 
+    /** @var LoggerInterface */
+    private readonly LoggerInterface $logger;
+
     /**
      * @param RequestInterface $request
      * @param ProductRepository $productRepository
      * @param FilterBuilder $filterBuilder
      * @param SearchCriteriaBuilder $searchCriteriaBuilder
+     * @param LoggerInterface $logger
      */
     public function __construct(
         RequestInterface $request,
         ProductRepository $productRepository,
         FilterBuilder $filterBuilder,
-        SearchCriteriaBuilder $searchCriteriaBuilder
+        SearchCriteriaBuilder $searchCriteriaBuilder,
+        LoggerInterface $logger
     ) {
         $this->request = $request;
         $this->productRepository = $productRepository;
         $this->filterBuilder = $filterBuilder;
         $this->searchCriteriaBuilder = $searchCriteriaBuilder;
+        $this->logger = $logger;
 
         $skus = (array)$this->request->getParam('skus');
         $this->setProductsFromSkus($skus);
@@ -61,13 +68,18 @@ class Product implements ArgumentInterface
     {
         $skuFilter = $this->filterBuilder->setField('sku')->setValue($skus)->setConditionType('in')->create();
         $searchCriteria = $this->searchCriteriaBuilder->addFilters([$skuFilter])->create();
-        $this->products = $this->productRepository->getList($searchCriteria)->getItems();
-        $validSkus = array_map(
-            static fn($product) => $product->getSku(),
-            $this->products
-        );
-        
-        $this->invalidSkus = array_diff($skus, $validSkus);
+
+        try {
+            $this->products = $this->productRepository->getList($searchCriteria)->getItems();
+            $validSkus = array_map(
+                static fn($product) => $product->getSku(),
+                $this->products
+            );
+
+            $this->invalidSkus = array_diff($skus, $validSkus);
+        } catch (\Exception $ex) {
+            $this->logger->error($ex->getMessage());
+        }
     }
 
     /**
