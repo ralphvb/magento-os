@@ -7,4 +7,10 @@
             </argument>
         </arguments>
     </type>
+    <!-- This is the proxy which bypasses the instantiation of the Slow class until a function within it is used. -->
+    <type name="RvB\CommandProxy\Console\Command\ExecuteModels">
+        <arguments>
+            <argument name="slow" xsi:type="object">RvB\CommandProxy\Model\Slow\Proxy</argument>
+        </arguments>
+    </type>
 </config>
