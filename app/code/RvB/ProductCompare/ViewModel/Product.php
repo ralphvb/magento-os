@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace RvB\ProductCompare\ViewModel;
 
 use Magento\Catalog\Model\ProductRepository;
+use Magento\Framework\Api\FilterBuilder;
+use Magento\Framework\Api\SearchCriteriaBuilder;
 use Magento\Framework\App\RequestInterface;
-use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 
 class Product implements ArgumentInterface
@@ -23,14 +24,29 @@ class Product implements ArgumentInterface
     /** @var ProductRepository */
     private readonly ProductRepository $productRepository;
 
+    /** @var FilterBuilder */
+    private readonly FilterBuilder $filterBuilder;
+
+    /** @var SearchCriteriaBuilder */
+    private readonly SearchCriteriaBuilder $searchCriteriaBuilder;
+
     /**
      * @param RequestInterface $request
      * @param ProductRepository $productRepository
+     * @param FilterBuilder $filterBuilder
+     * @param SearchCriteriaBuilder $searchCriteriaBuilder
      */
-    public function __construct(RequestInterface $request, ProductRepository $productRepository)
-    {
+    public function __construct(
+        RequestInterface $request,
+        ProductRepository $productRepository,
+        FilterBuilder $filterBuilder,
+        SearchCriteriaBuilder $searchCriteriaBuilder
+    ) {
         $this->request = $request;
         $this->productRepository = $productRepository;
+        $this->filterBuilder = $filterBuilder;
+        $this->searchCriteriaBuilder = $searchCriteriaBuilder;
+
         $skus = (array)$this->request->getParam('skus');
         $this->setProductsFromSkus($skus);
     }
@@ -43,13 +59,15 @@ class Product implements ArgumentInterface
      */
     private function setProductsFromSkus(array $skus): void
     {
-        foreach ($skus as $sku) {
-            try {
-                $this->products[] = $this->productRepository->get($sku);
-            } catch (NoSuchEntityException) {
-                $this->invalidSkus[] = $sku;
-            }
-        }
+        $skuFilter = $this->filterBuilder->setField('sku')->setValue($skus)->setConditionType('in')->create();
+        $searchCriteria = $this->searchCriteriaBuilder->addFilters([$skuFilter])->create();
+        $this->products = $this->productRepository->getList($searchCriteria)->getItems();
+        $validSkus = array_map(
+            static fn($product) => $product->getSku(),
+            $this->products
+        );
+        
+        $this->invalidSkus = array_diff($skus, $validSkus);
     }
 
     /**
