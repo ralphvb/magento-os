@@ -49,6 +49,16 @@ class Actions extends Column
                         'id' => $item['id']
                     ]),
                     'label' => __('Edit')
+                ],
+                'delete' => [
+                    'href' => $this->urlBuilder->getUrl('minerva/faq/delete', [
+                        'id' => $item['id']
+                    ]),
+                    'label' => __('Delete'),
+                    'confirm' => [
+                        'title' => __('Delete'),
+                        'message' => __('Are you sure you wan\'t to delete this record?')
+                    ]
                 ]
             ];
         }
