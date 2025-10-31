@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <!-- Definición de DataProviders (di.xml) -->
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">rvb_minerva_faq_listing.rvb_minerva_faq_listing_data_source</item>
+            <!-- Convención de nombres para Data Provider de UI Grids Components vendor_module_model_listing.vendor_module_entity_data_source -->
+            <!-- Convención de nombres para Data Provider de UI Grids Components nombre_del_ui_component.nombre_del_data_source -->
+        </item>
+    </argument>
+    <settings>
+        <deps>
+            <dep>rvb_minerva_faq_listing.rvb_minerva_faq_listing_data_source</dep>
+            <!-- Convención de nombres para Dependency de UI Grids Components el mismo que el Data Provider de arriba -->
+        </deps>
+        <!-- Convención de nombres para Spinner de UI Grids Components vendor_module_entity_spinner -->
+        <spinner>rvb_minerva_faq_columns</spinner>
+    </settings>
+    <!-- Convención de nombres para Data Source Node de UI Grids Components nombre_del_data_source -->
+    <dataSource name="rvb_minerva_faq_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <!-- updateUrl oblogatorio para render del Grid -->
+            <updateUrl path="mui/index/render" />
+        </settings>
+        <!-- aclResource opcional -->
+        <aclResource>RvB_Minerva::faq</aclResource>
+        <!-- Convención de nombres para Data Provider de UI Grids Components el mismo que el Data Source en di.xml -->
+        <dataProvider name="rvb_minerva_faq_listing_data_source" class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+            <settings>
+                <!-- Aquí es el nombre de la llave primaria de la tabla -->
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <!-- Convención de nombres para Columns de UI Grids Components vendor_module_entity_columns -->
+    <columns name="rvb_minerva_faq_columns">
+        <!-- Se define columna por atributo de la entidad que queramos mostrar -->
+        <column name="id">
+            <settings>
+                <label translate="true">ID</label>
+            </settings>
+        </column>
+        <column name="question">
+            <settings>
+                <label translate="true">Question</label>
+            </settings>
+        </column>
+    </columns>
+</listing>

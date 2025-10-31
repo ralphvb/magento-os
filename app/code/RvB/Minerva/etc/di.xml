@@ -10,7 +10,7 @@
         <arguments>
             <argument name="collections" xsi:type="array">
                 <item name="rvb_minerva_faq_listing_data_source" xsi:type="string">RvB\Minerva\Model\ResourceModel\Faq\Grid\Collection</item>
-                <!-- <item name="vendor_module_model_listing_data_source"></item> -->
+                <!-- Convención de nombres para Data Sources de UI Grids Components vendor_module_model_listing_data_source -->
             </argument>
         </arguments>
     </type>
