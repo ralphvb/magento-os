@@ -70,5 +70,7 @@
                 <dateFormat>dd/MM/yyyy hh:mm:ss</dateFormat>
             </settings>
         </column>
+        <actionsColumn name="actions" class="RvB\Minerva\Ui\Component\Listing\Columns\Actions">
+        </actionsColumn>
     </columns>
 </listing>
