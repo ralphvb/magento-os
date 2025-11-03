@@ -19,6 +19,10 @@
     <!-- Convención de nombres para Data Source Node de UI Grids Components nombre_del_data_source -->
     <dataSource name="rvb_minerva_faq_listing_data_source" component="Magento_Ui/js/grid/provider">
         <settings>
+            <!-- config para crash de caché para sorting de columnas -->
+            <storageConfig>
+                <param name="cacheRequests" xsi:type="boolean">false</param>
+            </storageConfig>
             <!-- updateUrl oblogatorio para render del Grid -->
             <updateUrl path="mui/index/render" />
         </settings>
@@ -79,6 +83,7 @@
                 <dataType>select</dataType>
                 <label translate="true">Is Published?</label>
                 <options class="Magento\Config\Model\Config\Source\Yesno"/>
+                <sorting>desc</sorting>
             </settings>
         </column>
         <column name="created_at" component="Magento_Ui/js/grid/columns/date">
