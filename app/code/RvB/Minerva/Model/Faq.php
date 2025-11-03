@@ -10,6 +10,6 @@ use Magento\Framework\Model\AbstractModel;
 class Faq extends AbstractModel
 {
     protected function _construct() {
-        $this->_init(ResourceModel\Faq::class);
+        $this->_init(\RvB\Minerva\Model\ResourceModel\Faq::class);
     }
 }
