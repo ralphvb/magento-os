@@ -39,6 +39,7 @@
         </settings>
         <paging name="listing_paging" />
         <columnsControls name="columns_controls" />
+        <bookmark name="bookmarks" />
     </listingToolbar>
     <!-- Convención de nombres para Columns de UI Grids Components vendor_module_entity_columns -->
     <columns name="rvb_minerva_faq_columns">
