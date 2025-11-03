@@ -33,8 +33,30 @@
             </settings>
         </dataProvider>
     </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <paging name="listing_paging" />
+        <columnsControls name="columns_controls" />
+    </listingToolbar>
     <!-- Convención de nombres para Columns de UI Grids Components vendor_module_entity_columns -->
     <columns name="rvb_minerva_faq_columns">
+        <settings>
+            <childDefaults>
+                <param name="fieldAction" xsi:type="array">
+                    <!-- Convención de nombres para provider del settings del columns de UI Grids Components nombre_del_ui_component.nombre_del_ui_component.nombre_del_nodo_columnas.nombre_del_actionsColumn -->
+                    <item name="provider" xsi:type="string">rvb_minerva_faq_listing.rvb_minerva_faq_listing.rvb_minerva_faq_columns.actions</item>
+                    <!-- vendor/magento/module-ui/view/base/web/js/grid/columns/actions.js -->
+                    <item name="target" xsi:type="string">applyAction</item>
+                    <item name="params" xsi:type="array">
+                        <!-- app/code/RvB/Minerva/Ui/Component/Listing/Columns/Actions.php -->
+                        <item name="0" xsi:type="string">edit</item>
+                        <item name="1" xsi:type="string">${ $.$data.rowIndex }</item>
+                    </item>
+                </param>
+            </childDefaults>
+        </settings>
         <!-- Se define columna por atributo de la entidad que queramos mostrar -->
         <column name="id">
             <settings>
