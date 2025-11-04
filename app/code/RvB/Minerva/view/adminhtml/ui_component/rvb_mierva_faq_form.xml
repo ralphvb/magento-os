@@ -3,4 +3,22 @@
     <argument name="data" xsi:type="array">
         <item name="template" xsi:type="string">templates/form/collapsible</item>
     </argument>
+    <settings>
+        <namespace>rvb_minerva_faq_form</namespace>
+        <!-- vendor/magento/module-ui/view/base/web/js/form/provider.js -->
+        <dataScope>data</dataScope>
+        <dataSource name="rvb_minerva_faq_data_source">
+            <argument name="data" xsi:type="array">
+                <item name="js_config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+                </item>
+            </argument>
+            <dataProvider class="RvB\Minerva\Ui\DataProvider\Faq" name="rvb_minerva_faq_data_source">
+                <settings>
+                    <requestFieldName>id</requestFieldName>
+                    <primaryFieldName>id</primaryFieldName>
+                </settings>
+            </dataProvider>
+        </dataSource>
+    </settings>
 </form>
