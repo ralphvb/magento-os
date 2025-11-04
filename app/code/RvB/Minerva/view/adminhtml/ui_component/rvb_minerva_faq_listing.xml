@@ -64,6 +64,24 @@
             </argument>
         </filters>
         <filterSearch name="fulltext" />
+        <massaction name="listing_massaction" component="Magento_Ui/js/grid/tree-massactions">
+            <settings>
+                <!-- Convención de nombres para provider del settings del columns de UI Grids Components para massactions nombre_del_ui_component.nombre_del_ui_component.nombre_del_nodo_columnas.nombre_del_selectionColumns -->
+                <selectProvider>rvb_minerva_faq_listing.rvb_minerva_faq_listing.rvb_minerva_faq_columns.ids</selectProvider>
+                <indexField>id</indexField>
+            </settings>
+            <action name="delete">
+                <settings>
+                    <type>delete</type>
+                    <label translate="true">Delete</label>
+                    <url path="*/*/massDelete" />
+                    <confirm>
+                        <title translate="true">Delete items</title>
+                        <message translate="true">Are you sure you want to delete the selected items?</message>
+                    </confirm>
+                </settings>
+            </action>
+        </massaction>
     </listingToolbar>
     <!-- Convención de nombres para Columns de UI Grids Components vendor_module_entity_columns -->
     <columns name="rvb_minerva_faq_columns">
