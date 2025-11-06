@@ -8,6 +8,7 @@
     </argument>
     <settings>
         <buttons>
+            <button name="Back" class="RvB\Minerva\Block\Adminhtml\Faq\Edit\Button\Back" />
             <button name="save" class="RvB\Minerva\Block\Adminhtml\Faq\Edit\Button\Save" />
         </buttons>
         <namespace>rvb_minerva_faq_form</namespace>
