@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <virtualType name="RvB\Minerva\Model\ResourceModel\Faq\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">rvb_minerva_faq</argument>
+            <argument name="resourceModel" xsi:type="string">RvB\Minerva\Model\ResourceModel\Faq</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="rvb_minerva_faq_listing_data_source" xsi:type="string">RvB\Minerva\Model\ResourceModel\Faq\Grid\Collection</item>
+                <!-- Convención de nombres para Data Sources de UI Grids Components vendor_module_model_listing_data_source -->
+            </argument>
+        </arguments>
+    </type>
+</config>
