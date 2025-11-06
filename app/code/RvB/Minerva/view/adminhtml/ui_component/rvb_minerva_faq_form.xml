@@ -27,4 +27,32 @@
             </settings>
         </dataProvider>
     </dataSource>
+    <fieldset name="rvb_minerva_faq_fieldset">
+        <settings>
+            <label/>
+        </settings>
+        <field name="id" formElement="hidden" />
+        <field name="question" formElement="input">
+            <settings>
+                <label translate="true">Question</label>
+            </settings>
+        </field>
+        <field name="answer" formElement="input">
+            <settings>
+                <label translate="true">Answer</label>
+            </settings>
+        </field>
+        <field name="is_published" formElement="select">
+            <settings>
+                <label translate="true">Publish?</label>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Magento\Config\Model\Config\Source\Yesno" />
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+    </fieldset>
 </form>
