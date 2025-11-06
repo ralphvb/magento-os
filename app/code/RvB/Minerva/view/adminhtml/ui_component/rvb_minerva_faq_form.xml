@@ -7,6 +7,9 @@
         <item name="template" xsi:type="string">templates/form/collapsible</item>
     </argument>
     <settings>
+        <buttons>
+            <button name="save" class="RvB\Minerva\Block\Adminhtml\Faq\Edit\Button\Save" />
+        </buttons>
         <namespace>rvb_minerva_faq_form</namespace>
         <!-- vendor/magento/module-ui/view/base/web/js/form/provider.js -->
         <dataScope>data</dataScope>
@@ -20,6 +23,9 @@
                 <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
             </item>
         </argument>
+        <settings>
+            <submitUrl path="*/*/save" />
+        </settings>
         <dataProvider class="RvB\Minerva\Ui\DataProvider\Faq" name="rvb_minerva_faq_data_source">
             <settings>
                 <requestFieldName>id</requestFieldName>
