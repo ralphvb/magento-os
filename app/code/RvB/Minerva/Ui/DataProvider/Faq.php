@@ -10,12 +10,20 @@ use Magento\Ui\DataProvider\AbstractDataProvider;
 
 class Faq extends AbstractDataProvider
 {
-    /** @var Collection */
+    /** @var Collection $collection */
     protected $collection;
 
     /** @var array */
     private array $loadedData;
 
+    /**
+     * @param string $name
+     * @param string $primaryFieldName
+     * @param string $requestFieldName
+     * @param CollectionFactory $collectionFactory
+     * @param array $meta
+     * @param array $data
+     */
     public function __construct(
         $name,
         $primaryFieldName,
