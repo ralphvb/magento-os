@@ -6,7 +6,7 @@
 - Update Handles incluye el contenido del nodo referenciado.
 - Layout Handles: page layout handles (rutas de controladores), page specific handles y arbitrary handles.
 - Handles para CMS Home: cms_page_view_id_home (specific) = cm_index_index (page).
-- Specific Handle para productos simples en específico: catalog_product_view_type_simple_id_1 = /catalog/product/view?type=simple&id=1.
+- Specific Handle para productos simples en específico: catalog_product_view_type_simple_id_{id} = /catalog/product/view?type=simple&id=1 = catalog_product_view_sku_{sku}.
 - Specific Handle para productos descargables: catalog_product_view_type_downloadable.
 - SpecificHandle para productos simples en el Cart: checkout_cart_configure_type_simple.
 - Arbitrary Handle para todas las páginas: default.xml.
