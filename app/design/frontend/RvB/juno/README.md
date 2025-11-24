@@ -2,7 +2,7 @@
 
 - Para corregir o cambiar nombre del tema, en la BD eliminar el registro del tema de la tabla theme.
 - El tamaño del preview.png debe ser 800x800 y en PNG.
-- Frontend directory fallback: app/design > vendor > app/code
+- Frontend directory fallback: vendor > app/design > app/code / base > frontend/adminhtml
 - Update Handles incluye el contenido del nodo referenciado.
 - Layout Handles: page layout handles (rutas de controladores), page specific handles y arbitrary handles.
 - Handles para CMS Home: cms_page_view_id_home (specific) = cm_index_index (page).
