@@ -2,6 +2,6 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
     <!-- vendor/magento/module-theme/view/frontend/layout/default.xml -->
-        <move element="page.main.title" destination="content.top" />
+        <move element="page.main.title" destination="content.top" before="-" />
     </body>
 </page>
