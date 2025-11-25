@@ -3,9 +3,13 @@
     <head>
         <!-- Config para LiveReload (TODO) -->
         <!-- <script src="/livereload.js?port=443" src_type="url" defer="true" /> -->
-        
+
         <!-- Se recomienda usar css en vez de link para cargar CSS externo -->
         <css src="https://unpkg.com/aos@2.3.1/dist/aos.css" src_type="url" />
         <!-- <link rel="stylesheet" media="all" src="https://unpkg.com/aos@2.3.1/dist/aos.css" src_type="url" /> -->
+
+        <!-- Se recomienda usa la segunda version que la primera de las siguientes -->
+        <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" src_type="url" /> -->
+        <script src="Juno_Theme::js/aos-init.js" />
     </head>
 </page>
