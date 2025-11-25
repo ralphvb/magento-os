@@ -6,5 +6,10 @@
                 <value id="https_unpkg_com" type="host">https://unpkg.com</value>
             </values>
         </policy>
+        <policy id="script-src">
+            <values>
+                <value id="https_unpkg_com" type="host">https://unpkg.com</value>
+            </values>
+        </policy>
     </policies>
 </csp_whitelist>
