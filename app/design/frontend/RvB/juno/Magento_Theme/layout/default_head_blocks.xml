@@ -11,5 +11,7 @@
         <!-- Se recomienda usa la segunda version que la primera de las siguientes -->
         <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" src_type="url" /> -->
         <script src="Juno_Theme::js/aos-init.js" />
+
+        <remove src="mage/calendar.css"/>
     </head>
 </page>
