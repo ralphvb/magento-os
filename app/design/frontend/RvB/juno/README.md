@@ -10,3 +10,11 @@
 - Specific Handle para productos descargables: catalog_product_view_type_downloadable.
 - SpecificHandle para productos simples en el Cart: checkout_cart_configure_type_simple.
 - Arbitrary Handle para todas las páginas: default.xml.
+
+# Config Grunt
+
+1. Se instala node (Mark dice que global, pendiente de checar en Arch RvB).
+2. Se instala grunt: npm-install grunt-cli.
+3. Se duplican archivos "package.json", "grunt-config.json" y "Gruntfile.js".
+4. Se instalan librerías: npm install.
+5. En "dev/tools/grunt/configs/" duplicar archivo themes.js con nombre "local-themes" y agregar tema custom.
