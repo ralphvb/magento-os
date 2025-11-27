@@ -26,3 +26,4 @@
 1. _theme.less es para sobreescribir variables del tema.
 2. _module.less es para hacer override de estilos nativos o estilizar custom modules.
 3. _extend.less es para hacer extender estilos nativos o estilizar custom modules.
+4. Ruta para consultar documentación interna de CSS en Magento: http://{URL}/static/frontend/Magento/blank/en_US/css/docs/index.html
