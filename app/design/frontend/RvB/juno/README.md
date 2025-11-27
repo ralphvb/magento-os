@@ -20,3 +20,8 @@
 5. En "dev/tools/grunt/configs/" duplicar archivo themes.js con nombre "local-themes" y agregar tema custom.
 6. Comandos: grunt clean, grunt exec, grunt less, grunt watch.
 7. Funcionalidad LiveReload: LiveReload / Live Server Web Extension (https://github.com/ritwickdey/live-server-web-extension/blob/master/docs/Setup.md)
+
+#CSS
+
+1. _theme.less es para sobreescribir variables del tema.
+2. 
