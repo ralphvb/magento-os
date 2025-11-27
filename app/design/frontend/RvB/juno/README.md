@@ -29,3 +29,23 @@
 4. Ruta para consultar documentación interna de CSS en Magento: http://{URL}/static/frontend/Magento/blank/en_US/css/docs/index.html
 5. Optimización de Assets: https://experienceleague.adobe.com/en/docs/commerce-operations/implementation-playbook/best-practices/development/optimize-css-js-files
 6. Herramienta Online para minificar CSS: https://www.toptal.com/developers/cssminifier
+
+# Future project ideas
+
+- Add the help icon next to the label
+- Updated font colors
+- Pop-up arrow alignment with help icon
+- Help icon size
+- Help icon color, rest and hover states
+- Custom Product Page Layout: Create a unique product page layout that focuses on visual storytelling, highlighting product features and benefits in a more engaging way.
+- Animated Checkout Progress Indicator: Develop a checkout progress indicator with subtle animations and micro-interactions to enhance the user experience during checkout.
+- Witty and Helpful 404 Error Page: Design a 404 error page that not only informs users but also entertains them with witty content while guiding them back to relevant pages.
+- Enhanced Category Page Layout: Improve the category page by adding dynamic product highlighting and custom filtering options for a more interactive browsing experience.
+- Zoomable Product Image Gallery: Build a product image gallery with zoom functionality and clickable hotspots that reveal product details or features.
+- Responsive Sticky Header: Create a sticky header with smooth scroll-triggered animations that adapts seamlessly to various screen sizes.
+- Footer Redesign: Redesign the footer with an animated newsletter signup form and improved layout of store information and links.
+- Slide-out Mini-cart: Develop a slide-out mini-cart with real-time cart total updates and a smooth animation when adding or removing products.
+- Dark Mode Theme Implementation: Implement a dark mode option for your theme with a toggle switch and smooth transition effects between light and dark modes.
+- Main and Child Theme Structure: Create a main theme and a child theme, then design a showcase page that demonstrates the differences and inheritance between them.
+- Interactive Product Comparison Page: Redesign the product comparison page to be more user-friendly and interactive, with side-by-side feature comparisons and highlighting of differences.
+- Dynamic Product Badges System: Develop a system for displaying dynamic product badges (e.g., "New", "Sale", "Best Seller") with customizable styles based on product attributes or conditions.
