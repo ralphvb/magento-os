@@ -21,9 +21,11 @@
 6. Comandos: grunt clean, grunt exec, grunt less, grunt watch.
 7. Funcionalidad LiveReload: LiveReload / Live Server Web Extension (https://github.com/ritwickdey/live-server-web-extension/blob/master/docs/Setup.md)
 
-#CSS
+# CSS
 
 1. _theme.less es para sobreescribir variables del tema.
 2. _module.less es para hacer override de estilos nativos o estilizar custom modules.
 3. _extend.less es para hacer extender estilos nativos o estilizar custom modules.
 4. Ruta para consultar documentación interna de CSS en Magento: http://{URL}/static/frontend/Magento/blank/en_US/css/docs/index.html
+5. Optimización de Assets: https://experienceleague.adobe.com/en/docs/commerce-operations/implementation-playbook/best-practices/development/optimize-css-js-files
+6. Herramienta Online para minificar CSS: https://www.toptal.com/developers/cssminifier
