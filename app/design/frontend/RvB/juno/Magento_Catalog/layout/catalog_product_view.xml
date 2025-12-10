@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Ubicación del bloque en vendor: Magento_Wishlist -->
+        <!-- 'remove' impide acceso al código -->
+        <referenceBlock name="view.addto.wishlist" remove="true" />
+        <!-- Ubicación del bloque en vendor: Magento_Catalog -->
+        <!-- 'display' no impide acceso al código -->
+        <referenceBlock name="view.addto.compare" display="false" />
+    </body>
+</page>
