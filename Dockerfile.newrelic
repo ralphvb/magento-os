@@ -1,0 +1,35 @@
+SHELL ["/bin/bash", "-c"]
+
+RUN set -euxo pipefail; \
+  apt-get update; \
+  DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    ca-certificates curl gnupg; \
+  rm -rf /var/lib/apt/lists/*
+
+RUN set -euxo pipefail; \
+  install -d -m 0755 /usr/share/keyrings; \
+  curl -fsSL https://download.newrelic.com/548C16BF.gpg \
+    | gpg --dearmor -o /usr/share/keyrings/download.newrelic.com-newrelic.gpg; \
+  echo "deb [signed-by=/usr/share/keyrings/download.newrelic.com-newrelic.gpg] http://apt.newrelic.com/debian/ newrelic non-free" \
+    > /etc/apt/sources.list.d/newrelic.list
+
+RUN set -euxo pipefail; \
+  apt-get update; \
+  DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    newrelic-php5 newrelic-daemon; \
+  rm -rf /var/lib/apt/lists/*
+
+RUN set -euxo pipefail; \
+  rm -f /etc/php/*/mods-available/newrelic.ini 2>/dev/null || true; \
+  rm -f /etc/php/*/*/conf.d/*newrelic*.ini 2>/dev/null || true
+
+RUN set -euxo pipefail; \
+  PHPV="8.2"; \
+  for SAPI in cli fpm; do \
+    DIR="/etc/php/${PHPV}/${SAPI}/conf.d"; \
+    mkdir -p "$DIR"; \
+    printf "; New Relic (extension only)\nextension=newrelic.so\n" > "${DIR}/20-newrelic-ext.ini"; \
+  done
+
+RUN set -euxo pipefail; \
+  chmod 1777 /tmp || true

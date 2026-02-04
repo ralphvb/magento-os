@@ -1,0 +1,57 @@
+name: magento-os
+type: magento2
+docroot: pub
+php_version: "8.2"
+webserver_type: nginx-fpm
+xdebug_enabled: false
+additional_hostnames: []
+additional_fqdns: [magento-os.ddev]
+database:
+    type: mariadb
+    version: "10.6"
+upload_dirs:
+    - media
+use_dns_when_possible: true
+composer_version: "2.2"
+disable_settings_management: true
+corepack_enable: false
+timezone: America/Chicago
+host_db_port: "3307"
+web_environment: []
+hooks:
+  post-start:
+    - exec: |
+        bash -lc '
+          set -euo pipefail
+          PHPV=8.2
+
+          NR_LIC="${NEWRELIC_LICENSE_KEY:-}"
+          NR_APP="${NEWRELIC_APP_NAME:-}"
+
+          if [ -z "$NR_LIC" ] || [ -z "$NR_APP" ]; then
+            echo "New Relic: faltan NEWRELIC_LICENSE_KEY o NEWRELIC_APP_NAME; skipping."
+            exit 0
+          fi
+
+          for SAPI in cli fpm; do
+            DIR="/etc/php/${PHPV}/${SAPI}/conf.d"
+            FILE="${DIR}/99-newrelic-settings.ini"
+            mkdir -p "$DIR"
+
+            printf "%s\n" \
+              "; New Relic settings (runtime - last). Managed by DDEV hook." \
+              "newrelic.enabled = true" \
+              "newrelic.license = \"${NR_LIC}\"" \
+              "newrelic.appname = \"${NR_APP}\"" \
+              "newrelic.logfile = \"/tmp/newrelic_php_agent.log\"" \
+              "newrelic.loglevel = \"info\"" \
+              "newrelic.daemon.location = \"/usr/bin/newrelic-daemon\"" \
+              "newrelic.daemon.logfile = \"/tmp/newrelic-daemon.log\"" \
+              > "$FILE"
+
+            chmod 0644 "$FILE"
+          done
+
+          # Reload FPM (si aplica)
+          killall -USR2 php-fpm 2>/dev/null || true
+        '
